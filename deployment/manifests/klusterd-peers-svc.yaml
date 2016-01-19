@@ -1,0 +1,12 @@
+# Headless service that allows us to get the IP addresses of our klusterd nodes
+apiVersion: v1
+kind: Service
+metadata:
+  name: klusterd-peers
+spec:
+  clusterIP: None
+  ports:
+  - name: server-communication
+    port: 2551
+  selector:
+    name: klusterd
